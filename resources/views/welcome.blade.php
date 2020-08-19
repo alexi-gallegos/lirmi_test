@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('title', 'Usuarios')
+
 @section('content')
-    <example-component />
+    <div>
+        <users></users>
+    </div>
 @endsection
