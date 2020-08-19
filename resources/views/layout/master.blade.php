@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="api-base-url" content="{{ url('/api') }}" />
         <title>Lirmi Test | @yield('title')</title>
 
         <!-- Fonts -->
