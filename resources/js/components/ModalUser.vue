@@ -58,7 +58,6 @@ export default {
         .then((res) => {
           this.user = res.data.data;
           this.userFound = true;
-          console.log(res.data.data);
         })
         .catch((err) => {
             if(err.response.status == 404){
@@ -70,7 +69,6 @@ export default {
   },
   created() {
     UserModalBus.$on("showUserModal", (userId) => {
-      console.log("modal", userId);
       this.getUser(userId);
     });
   },
