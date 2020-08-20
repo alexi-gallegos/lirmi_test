@@ -41,6 +41,9 @@ class User extends Authenticatable
     ];
 
     public function create_user($request){
-        return $this::create($request->all());
+        $this->nombre = $request->first_name;
+        $this->apellido = $request->last_name;
+        $this->email = $request->email;
+        return $this;
     }
 }
