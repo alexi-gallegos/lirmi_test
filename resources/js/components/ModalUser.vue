@@ -69,7 +69,7 @@ export default {
     },
   },
   created() {
-    UserModalBus.$on("userId", (userId) => {
+    UserModalBus.$on("showUserModal", (userId) => {
       console.log("modal", userId);
       this.getUser(userId);
     });
