@@ -19,13 +19,12 @@ export default {
   },
   methods: {
       sendUserId(id){
-          UserModalBus.$emit('userId', id);
+          UserModalBus.$emit('showUserModal', id);
       }
   },
   computed: {
-    fullName(user) {
-      let usuario = user.$options.propsData.user;
-      return `${usuario.first_name} ${usuario.last_name}`;
+    fullName() {
+      return `${this.user.first_name} ${this.user.last_name}`;
     },
   },
 };
