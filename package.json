@@ -22,8 +22,9 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "axios": "^0.19",
         "jquery": "^3.5.1",
-        "vuejs-paginate": "^2.1.0",
-        "axios": "^0.19"
+        "sweetalert2": "^9.17.1",
+        "vuejs-paginate": "^2.1.0"
     }
 }
