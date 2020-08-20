@@ -4,8 +4,12 @@
     <ul class="list-group">
       <users-list v-for="(user,index) in users" :key="index" :user="user"></users-list>
     </ul>
+    <a 
+      v-if="useLocalApi == false" 
+      :href="url"
+    >Ir a usuarios local</a>
     <paginate
-    v-if="users.length > 0"
+      v-if="users.length > 0"
       :page-count="pageCount"
       :click-handler="paginationHandler"
       :prev-text="'Prev'"
@@ -31,26 +35,36 @@ export default {
     ModalUser,
     SearchBoxUser,
   },
+  props: {
+    useLocalApi: {
+      type: Boolean,
+      default: true,
+    },
+    url: {
+      type: String,
+    },
+  },
   data() {
     return {
       users: [],
-      pageCount: 0
+      pageCount: 0,
     };
   },
   methods: {
     getUsers(page = 1) {
-      window.axios
-        .get(`https://reqres.in/api/users?page=${page}`)
+      let axiosApi = this.useLocalApi ? window.localApi : window.externalApi;
+      axiosApi
+        .get(`/users?page=${page}`)
         .then((res) => {
-            console.log(res);
-            this.users = res.data.data;
-            this.pageCount = res.data.total_pages;
+          console.log(res);
+          this.users = res.data.data;
+          this.pageCount = res.data.total_pages;
         })
         .catch((err) => console.log(err));
     },
-    paginationHandler(pageNum){
-        this.getUsers(pageNum);
-    }
+    paginationHandler(pageNum) {
+      this.getUsers(pageNum);
+    },
   },
   mounted() {
     this.getUsers();
