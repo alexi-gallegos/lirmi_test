@@ -12,3 +12,9 @@
 **Comunicación entre componentes:** Me pareció que la mejor manera de manejar este comportamiento fue a través de eventBus, ya que es una aplicación pequeña, de haber sido lo contrario, hubiese considerado utilizar vuex. 
 
 **Manejo de acciones (Consultar datos, eliminar datos):** Todas las operaciones las realicé utilizando axios, me pareció la mejor manera de manejar este tipo de operaciones.
+
+**Nombre BD:** ``  colegio ``
+
+**ejecutar** `` php artisan migrate ``
+
+**No olvidar ejecutar** `` npm install `` 
