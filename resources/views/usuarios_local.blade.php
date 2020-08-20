@@ -3,5 +3,7 @@
 @section('title', 'Usuarios Local')
 
 @section('content')
-    xd
+    <users
+        :use-local-api="true"
+    ></users>
 @endsection
