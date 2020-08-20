@@ -46,4 +46,12 @@ class User extends Authenticatable
         $this->email = $request->email;
         return $this;
     }
+
+    public function get_user($id_user){
+        return $this::find($id_user);
+    }
+
+    public function users_paginated(){
+        return $this::paginate(6);
+    }
 }
