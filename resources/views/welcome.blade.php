@@ -4,6 +4,9 @@
 
 @section('content')
     <div>
-        <users></users>
+        <users
+        :use-local-api="false"
+        url="{{ route('usuarios-index') }}"
+        ></users>
     </div>
 @endsection
