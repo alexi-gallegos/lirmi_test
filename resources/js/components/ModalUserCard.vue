@@ -11,20 +11,20 @@
       </div>
     </div>
     <alert-modal
-        :user-created="userCreated.ok"
-        :show-alert="showAlert"
-        :message="userCreated.message"
+      :user-created="userCreated.ok"
+      :show-alert="showAlert"
+      :message="userCreated.message"
     ></alert-modal>
     <button class="btn btn-primary" @click="createUser">Registrar</button>
   </div>
 </template>
 
 <script>
-import AlertModal from './AlertModal';
+import AlertModal from "./AlertModal";
 export default {
   name: "ModalUserCard",
   components: {
-      AlertModal
+    AlertModal,
   },
   data() {
     return {
@@ -32,7 +32,7 @@ export default {
         ok: false,
         message: "",
       },
-      showAlert: false
+      showAlert: false,
     };
   },
   props: {
@@ -43,8 +43,8 @@ export default {
   },
   methods: {
     createUser() {
-        this.showAlert = false;
-      window.axios
+      this.showAlert = false;
+      window.localApi
         .post("/user", this.user)
         .then((res) => {
           this.userCreated.ok = true;
@@ -57,11 +57,12 @@ export default {
           } else {
             this.userCreated.message = "Lo sentimos, intente más tarde.";
           }
-        }).finally(() => this.showAlert = true);
+        })
+        .finally(() => (this.showAlert = true));
     },
-    hideAlert(){
-        this.showAlert = false;
-    }
+    hideAlert() {
+      this.showAlert = false;
+    },
   },
 };
 </script>
